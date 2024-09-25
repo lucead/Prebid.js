@@ -1,7 +1,3 @@
-/**
- * @module modules/luceadBidAdapter
- */
-
 import {ortbConverter} from '../libraries/ortbConverter/converter.js';
 import {registerBidder} from '../src/adapters/bidderFactory.js';
 import {getUniqueIdentifierStr, deepSetValue, logInfo} from '../src/utils.js';
@@ -10,7 +6,7 @@ import {fetch} from '../src/ajax.js';
 const gvlid = 1309;
 const bidderCode = 'lucead';
 const defaultCurrency = 'EUR';
-const defaultTtl = 500;
+const defaultTtl = 2000;
 const aliases = ['adliveplus'];
 const defaultRegion = 'eu';
 const domain = 'lucead.com'
@@ -67,7 +63,7 @@ function buildRequests(bidRequests, bidderRequest) {
     method: 'POST',
     url: `${endpointUrl}/go/prebid/sra`,
     data: JSON.stringify({
-      request_id: bidderRequest.bidderRequestId,
+      request_id: window.lucead_request_id || bidderRequest.bidderRequestId,
       domain: location.hostname,
       bid_requests: bidRequests.map(bidRequest => {
         return {
