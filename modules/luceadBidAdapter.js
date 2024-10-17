@@ -1,7 +1,7 @@
-import {ortbConverter} from '../libraries/ortbConverter/converter.js';
-import {registerBidder} from '../src/adapters/bidderFactory.js';
+import {ortbConverter} from 'libraries/ortbConverter/converter.js';
+import {registerBidder} from 'src/adapters/bidderFactory.js';
 import {getUniqueIdentifierStr, deepSetValue, logInfo} from '../src/utils.js';
-import {fetch} from '../src/ajax.js';
+import {fetch} from 'src/ajax';
 
 const gvlid = 1309;
 const bidderCode = 'lucead';
