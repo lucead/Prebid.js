@@ -52,7 +52,14 @@ function buildRequests(bidRequests, bidderRequest) {
     region,
   };
 
-  window.lucead_prebid_data = companionData;
+  const k = 'lucead_prebid_data';
+
+  if (window[k]) {
+    window[k].push(companionData);
+  } else {
+    window[k] = [companionData];
+  }
+
   const fn = window.lucead_prebid;
 
   if (fn && typeof fn === 'function') {
